@@ -30,7 +30,7 @@ class _EpisodesScreenState extends State<EpisodesScreen> {
       var url = Uri.https('rickandmortyapi.com', '/api/episode');
 
       var response = await http.get(url);
-      
+
       if (response.statusCode != 200) {
         throw 'Service not working!!';
       }

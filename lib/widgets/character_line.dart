@@ -10,6 +10,13 @@ class CharacterLine extends StatelessWidget {
     return Column(
       children: [
         ListTile(
+          onTap: () {
+            // ana sayfadaysak bir geri yapar ve boşluğa düşeriz
+            // Navigator.of(context).pop(); 
+            //belirtilen sayfaya doğru ilerler.
+            Navigator.of(context).pushNamed('/character_detail', arguments: character);
+            
+          },
           title: Text(
             character.name,
             style: const TextStyle(fontWeight: FontWeight.w700),

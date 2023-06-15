@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './screens/main_tab/main_tab_screen.dart';
+import './screens/character_detail_screen.dart';
 
 void main() => runApp(RickAndMorty());
 
@@ -17,7 +18,11 @@ class RickAndMorty extends StatelessWidget {
         primarySwatch: Colors.purple,
       ),
       // A widget which will be started on application startup
-      home: MainTabScreen(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => MainTabScreen(),
+        '/character_detail':(context) => CharacterDetails(),
+      },
     );
   }
 }

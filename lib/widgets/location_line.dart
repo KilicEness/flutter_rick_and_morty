@@ -10,6 +10,10 @@ class LocationLine extends StatelessWidget {
     return Column(
       children: [
         ListTile(
+          onTap: () {
+            Navigator.of(context)
+                .pushNamed('/location_detail', arguments: location);
+          },
           title: Text(
             location.name,
             style: const TextStyle(fontWeight: FontWeight.w700),
@@ -23,7 +27,7 @@ class LocationLine extends StatelessWidget {
         ),
         const Divider(
           color: Colors.black,
-        )
+        ),
       ],
     );
   }

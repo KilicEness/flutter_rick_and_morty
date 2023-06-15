@@ -1,26 +1,27 @@
 import 'package:flutter/material.dart';
-import '../models/episode.dart';
+import '../models/location.dart';
 import '../widgets/key_value.dart';
 
-class EpisodeDetailScreen extends StatelessWidget {
-  const EpisodeDetailScreen({super.key});
+class LocationDetailScreen extends StatelessWidget {
+  const LocationDetailScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final _episode = ModalRoute.of(context)!.settings.arguments as Episode;
+    final _location = ModalRoute.of(context)!.settings.arguments as Location;
     return Scaffold(
       appBar: AppBar(
-        title: Text(_episode.name),
+        title: Text(_location.name),
       ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             KeyValue(
-                displayKey: "Number", displayValue: _episode.id.toString()),
-            KeyValue(displayKey: "Name", displayValue: _episode.name),
-            KeyValue(displayKey: "Air Date", displayValue: _episode.airDate),
-            KeyValue(displayKey: "Episode", displayValue: _episode.episode),
+                displayKey: "Number", displayValue: _location.id.toString()),
+            KeyValue(displayKey: "Name", displayValue: _location.name),
+            KeyValue(displayKey: "Type", displayValue: _location.type),
+            KeyValue(
+                displayKey: "Dimension", displayValue: _location.dimension),
             Container(
               margin: const EdgeInsets.all(15),
               child: Text(
@@ -32,7 +33,7 @@ class EpisodeDetailScreen extends StatelessWidget {
               child: Wrap(
                 spacing: 4,
                 runSpacing: 4.0,
-                children: _episode.characters
+                children: _location.residents
                     .map((character) => CircleAvatar(
                           radius: 20.0,
                           backgroundImage: NetworkImage(
